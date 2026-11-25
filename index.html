@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glamora | Learning Music, Practice Habits and Instrument Basics</title>
+<meta name="description" content="Glamora is an independent reading space about learning music: how to start an instrument, build a practice routine, understand notes and chords, and train your ear at a relaxed pace.">
+
+<!-- Google AdSense / Google Ads script: paste your site code here (inside head) -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --olive:#2F3A2B;
+  --olive-2:#46563F;
+  --red:#D64550;
+  --red-d:#B8323D;
+  --bg:#EFF2EC;
+  --white:#FFFFFF;
+  --text:#262D24;
+  --muted:#5E685A;
+  --line:#D9DFD3;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:var(--white);color:var(--text);line-height:1.75;font-size:17.5px;width:100%;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--red-d)}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+h1,h2,h3{font-family:'Rozha One',Georgia,serif;font-weight:400;line-height:1.15;color:var(--olive)}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.narrow{max-width:780px}
+
+/* header */
+header{background:var(--white);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--olive)}
+.brand span{font-family:'Rozha One',serif;font-size:1.65rem}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.94rem}
+nav a:hover{color:var(--red)}
+
+/* hero: record */
+.hero{background:var(--bg);padding:70px 0 80px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5vw,4.2rem);margin-bottom:22px}
+.hero p{color:var(--muted);font-size:1.12rem;max-width:540px;margin-bottom:32px}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:15px 30px;border-radius:8px;font-weight:700;transition:background .2s}
+.btn:hover{background:var(--red-d)}
+.btn.dark{background:var(--olive);margin-left:12px}
+.btn.dark:hover{background:var(--olive-2)}
+.record{position:relative;width:min(440px,100%);aspect-ratio:1;margin:0 auto;border-radius:50%;background:repeating-radial-gradient(circle at center,#2a2f27 0,#2a2f27 3px,#353b31 4px,#2a2f27 6px);box-shadow:0 20px 50px rgba(47,58,43,.28)}
+.record .label{position:absolute;inset:27%;border-radius:50%;overflow:hidden;border:6px solid var(--red);background:#8f9b88}
+.record .label img{width:100%;height:100%;object-fit:cover}
+.record .hole{position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;background:var(--bg);transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(0,0,0,.25)}
+
+/* sections */
+section{padding:84px 0}
+.tint{background:var(--bg)}
+.sec-head{max-width:700px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(2rem,3.6vw,2.8rem);margin-bottom:14px}
+.sec-head p{color:var(--muted)}
+
+/* intro */
+.intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.intro h2{font-size:clamp(2rem,3.4vw,2.7rem)}
+.intro p{margin-bottom:20px;color:var(--muted)}
+
+/* instruments */
+.inst{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.in{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.in img{width:100%;height:200px;object-fit:cover;background:#b9c4b2}
+.in div{padding:22px 22px 26px}
+.in h3{font-size:1.35rem;margin-bottom:8px}
+.in p{font-size:.96rem;color:var(--muted)}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.flip .pic{order:2}
+.pic{border-radius:var(--radius);overflow:hidden;background:#b9c4b2}
+.pic img{width:100%;height:100%;min-height:440px;object-fit:cover}
+.split h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin-bottom:18px}
+.split p{color:var(--muted);margin-bottom:18px}
+
+/* keys */
+.keys{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.keys svg{width:100%;height:auto;display:block}
+.keys p{margin-top:16px;color:var(--muted);font-size:.97rem}
+
+/* practice steps */
+.steps{list-style:none;counter-reset:s;max-width:820px}
+.steps li{counter-increment:s;position:relative;padding:0 0 32px 72px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:46px;height:46px;border-radius:50%;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Rozha One',serif;font-size:1.2rem}
+.steps li::after{content:"";position:absolute;left:22px;top:52px;bottom:6px;width:2px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:1.3rem;margin-bottom:6px}
+.steps p{color:var(--muted)}
+
+/* table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:680px}
+th,td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line);font-size:.97rem;vertical-align:top}
+th{background:var(--olive);color:#fff;font-weight:700}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:700;color:var(--olive)}
+
+/* ear grid */
+.ear{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.er{background:var(--white);border-radius:var(--radius);padding:30px 28px;border-top:5px solid var(--red)}
+.er:nth-child(2){border-top-color:var(--olive)}
+.er:nth-child(3){border-top-color:#C8A24B}
+.er h3{font-size:1.4rem;margin-bottom:10px}
+.er p{color:var(--muted);font-size:.99rem}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px}
+.gal figure{margin:0}
+.gal .ph{border-radius:var(--radius);overflow:hidden;background:#b9c4b2}
+.gal img{width:100%;height:290px;object-fit:cover}
+.gal figcaption{font-size:.92rem;color:var(--muted);padding-top:10px}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:700;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:20px;color:var(--olive)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--red)}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:14px;color:var(--muted)}
+
+/* ad slots */
+.ad-slot{width:100%;max-width:1200px;margin:0 auto;padding:30px 28px;min-height:120px;text-align:center}
+
+/* disclaimer */
+.disclaimer{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:var(--radius);padding:32px 36px}
+.disclaimer h3{font-size:1.4rem;margin-bottom:12px}
+.disclaimer p{color:var(--muted);font-size:.97rem;margin-bottom:10px}
+
+/* footer */
+footer{background:var(--olive);color:#BFC9B9;padding:56px 0 32px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:32px}
+footer .brand,footer .brand span{color:#fff}
+.foot p{max-width:420px;font-size:.95rem;margin-top:14px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:10px}
+.foot a{color:#fff;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.copy{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;font-size:.88rem}
+
+@media(max-width:960px){
+  nav{display:none}
+  .hero-grid,.intro,.split{grid-template-columns:1fr;gap:34px}
+  .split.flip .pic{order:0}
+  .inst{grid-template-columns:1fr 1fr}
+  .ear,.gal{grid-template-columns:1fr}
+  .gal img{height:240px}
+  .pic img{min-height:300px}
+  .btn.dark{margin:14px 0 0}
+  section{padding:58px 0}
+}
+@media(max-width:560px){.inst{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Glamora home">
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2F3A2B"/><path d="M16 29V12l12-3v17" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13.5" cy="29" r="3.2" fill="#D64550"/><circle cx="25.5" cy="26" r="3.2" fill="#D64550"/></svg>
+      <span>Glamora</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#instruments">Instruments</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Music is learned one calm note at a time.</h1>
+      <p>Glamora is an independent reading space about learning music. We explain how to start an instrument, build a practice routine, understand notes and chords and train your ear, all at a relaxed pace.</p>
+      <a class="btn" href="#about">Start reading</a>
+      <a class="btn dark" href="#practice">Practice routine</a>
+    </div>
+    <div class="record" role="img" aria-label="Vinyl record with a guitar photo as its label">
+      <div class="label"><img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=600&q=80" alt="" loading="eager"></div>
+      <div class="hole"></div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="about">
+  <div class="wrap intro">
+    <h2>Why Glamora exists</h2>
+    <div>
+      <p>Many people say they always wanted to play an instrument, but never started. They worry they are too old, not talented enough or too busy. In truth, learning music has far less to do with talent than with small, regular, enjoyable sessions repeated over weeks and months.</p>
+      <p>Glamora was created to make that first step feel friendly. Each article explains one idea in everyday language, such as how to read the names of notes, why slow practice works, or how to listen for the difference between two sounds.</p>
+      <p>We do not sell instruments or lessons. We simply share ideas that help beginners and returning players feel more confident, so music becomes a source of calm and enjoyment in daily life.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <!-- Google ad unit 1: paste your ad code here -->
+  <!--
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- INSTRUMENTS -->
+<section id="instruments" class="tint" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Four friendly ways to begin</h2>
+      <p>There is no single best first instrument. Choose the sound you love hearing, since that will keep you coming back.</p>
+    </div>
+    <div class="inst">
+      <article class="in">
+        <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=700&q=80" alt="Piano keys in soft light" loading="lazy">
+        <div><h3>Piano</h3><p>Notes are laid out clearly in front of you, which makes it easy to see how music works. A great base for understanding theory.</p></div>
+      </article>
+      <article class="in">
+        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=700&q=80" alt="Acoustic guitar resting against a wall" loading="lazy">
+        <div><h3>Guitar</h3><p>Portable and popular. Fingertips take time to adjust, but a few chords can already accompany many songs.</p></div>
+      </article>
+      <article class="in">
+        <img src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?auto=format&fit=crop&w=700&q=80" alt="Small stringed instrument being played" loading="lazy">
+        <div><h3>Ukulele</h3><p>Small, light and gentle on the hands. Many beginners enjoy how quickly simple songs become playable.</p></div>
+      </article>
+      <article class="in">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80" alt="Singer performing on stage" loading="lazy">
+        <div><h3>Voice</h3><p>The instrument you already carry. Singing builds listening skills and works well alongside any other instrument.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 1 -->
+<section>
+  <div class="wrap split">
+    <div class="pic"><img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=900&q=80" alt="Hands playing piano keys" loading="lazy"></div>
+    <div>
+      <h2>Slow practice is smart practice</h2>
+      <p>The urge to play a piece at full speed is strong, but speed usually comes from accuracy, not the other way around. When you play slowly, your hands and ears have time to notice mistakes, and the correct movement becomes automatic through repetition.</p>
+      <p>Break difficult passages into small sections of a few notes or one bar, and repeat each until it feels comfortable. Then connect sections gradually. This approach feels slower at first but saves a surprising amount of time and frustration in the end.</p>
+      <p>Short and regular sessions beat occasional long ones. Fifteen to thirty minutes most days gives your brain time to absorb what you practised, and rest between sessions is part of how skills settle in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section id="notes" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Finding your way around the notes</h2>
+      <p>Western music uses seven note names, A to G, repeating again and again. On a piano they are easy to see.</p>
+    </div>
+    <div class="keys">
+      <svg viewBox="0 0 700 190" role="img" aria-label="Piano keyboard showing the notes C D E F G A B">
+        <g stroke="#26302A" stroke-width="1.5">
+          <rect x="10" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="105" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="200" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="295" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="390" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="485" y="10" width="95" height="170" fill="#fff"/>
+          <rect x="580" y="10" width="95" height="170" fill="#fff"/>
+        </g>
+        <g fill="#2F3A2B">
+          <rect x="78" y="10" width="54" height="105" rx="3"/>
+          <rect x="173" y="10" width="54" height="105" rx="3"/>
+          <rect x="363" y="10" width="54" height="105" rx="3"/>
+          <rect x="458" y="10" width="54" height="105" rx="3"/>
+          <rect x="553" y="10" width="54" height="105" rx="3"/>
+        </g>
+        <g font-family="Hanken Grotesk,sans-serif" font-size="22" font-weight="700" fill="#2F3A2B" text-anchor="middle">
+          <text x="57" y="165">C</text><text x="152" y="165">D</text><text x="247" y="165">E</text><text x="342" y="165">F</text><text x="437" y="165">G</text><text x="532" y="165">A</text><text x="627" y="165">B</text>
+        </g>
+        <circle cx="57" cy="140" r="0" fill="#D64550"/>
+      </svg>
+      <p>The white keys carry the seven note names. The black keys in between are the sharps and flats. Once you know where C sits, just before a pair of black keys, you can find every other note around it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHORDS TABLE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>First chords many beginners learn</h2>
+      <p>A chord is several notes sounding together. These common ones appear in a huge number of songs, and learning them opens up a lot of music.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Chord</th><th>Feel</th><th>Notes (C-based example)</th><th>Good to know</th></tr></thead>
+        <tbody>
+          <tr><td>C major</td><td>Bright, open, settled</td><td>C, E, G</td><td>Often the very first chord people learn</td></tr>
+          <tr><td>G major</td><td>Warm and full</td><td>G, B, D</td><td>Pairs naturally with C</td></tr>
+          <tr><td>A minor</td><td>Gentle, reflective</td><td>A, C, E</td><td>Shares notes with C major, so it feels easy to move between them</td></tr>
+          <tr><td>F major</td><td>Rich and hopeful</td><td>F, A, C</td><td>Can be tricky on guitar, but is easy on piano</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE STEPS -->
+<section id="practice" class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>A simple 30-minute practice session</h2>
+      <p>This order keeps practice focused and enjoyable. Adjust the timing to your own energy and schedule.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Warm up (5 minutes)</h3><p>Play easy scales, open strings or gentle vocal sounds. The goal is to relax your hands and tune your ears.</p></li>
+      <li><h3>Review (5 minutes)</h3><p>Revisit something you already know. Early success builds confidence and keeps the session positive.</p></li>
+      <li><h3>Work on something new (10 minutes)</h3><p>Pick one small challenge, such as a new chord change or a few bars, and practise it slowly.</p></li>
+      <li><h3>Play for fun (5 minutes)</h3><p>Try a song you enjoy, even if it is not perfect. Enjoyment is the reason to keep going.</p></li>
+      <li><h3>Reflect (5 minutes)</h3><p>Note what went well and what to focus on next time. A short note in a notebook is enough.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- EAR TRAINING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Training your ear</h2>
+      <p>Listening is half of music. These everyday habits help you hear more clearly over time.</p>
+    </div>
+    <div class="ear">
+      <div class="er"><h3>Listen actively</h3><p>Pick one song and listen several times, each time focusing on a different part: the bass, the rhythm, the melody or the singer's phrasing.</p></div>
+      <div class="er"><h3>Sing along</h3><p>Humming or singing a melody helps your ear connect what you hear with the notes you play, even if you do not think of yourself as a singer.</p></div>
+      <div class="er"><h3>Compare sounds</h3><p>Play two notes and listen to whether the second is higher or lower. Slowly this skill grows into recognising intervals and chords.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 2 -->
+<section class="tint">
+  <div class="wrap split flip">
+    <div class="pic"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80" alt="Headphones resting on a table beside a music setup" loading="lazy"></div>
+    <div>
+      <h2>Staying motivated for the long run</h2>
+      <p>Almost every learner goes through a stretch where progress feels slow. This is normal and usually means your hands and ears are quietly catching up. Keeping a short practice log can show how far you have come when it does not feel obvious.</p>
+      <p>Set small, clear goals, such as learning one chord this week or playing a short melody smoothly. Celebrate each one. Playing for friends or family, even briefly, can also bring joy and a sense of purpose.</p>
+      <p>Most of all, keep the music enjoyable. If a piece becomes a chore, swap it for something you love. Skills built while having fun tend to last far longer than those built through pressure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The joy of making sound</h2>
+      <p>From quiet practice rooms to lively stages, music brings people together.</p>
+    </div>
+    <div class="gal">
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80" alt="Live musicians performing on stage" loading="lazy"></div><figcaption>Every performer was once a beginner.</figcaption></figure>
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?auto=format&fit=crop&w=700&q=80" alt="Piano in a calm room" loading="lazy"></div><figcaption>A quiet corner is enough to start.</figcaption></figure>
+      <figure><div class="ph"><img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=700&q=80" alt="Audience enjoying a concert" loading="lazy"></div><figcaption>Music is better when it is shared.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <!-- Google ad unit 2: paste your ad code here -->
+  <!--
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+
+<!-- FAQ -->
+<section id="faq" class="tint">
+  <div class="wrap narrow">
+    <div class="sec-head"><h2>Common questions</h2></div>
+    <details>
+      <summary>Is Glamora a music school or instrument shop?</summary>
+      <p>No. Glamora is an informational website. We do not sell instruments, lessons, courses or any other products or services. The pages are written only to share general ideas about learning music.</p>
+    </details>
+    <details>
+      <summary>Am I too old to start learning an instrument?</summary>
+      <p>Not at all. People begin at every age. Adults often bring patience and focus that help them improve steadily, and the enjoyment of music has no age limit.</p>
+    </details>
+    <details>
+      <summary>How long until I can play a song?</summary>
+      <p>It depends on the instrument and the song, but many beginners can manage a simple melody or a few chords within weeks of regular practice. Choosing easy songs first keeps motivation high.</p>
+    </details>
+    <details>
+      <summary>Do I need to read music to play?</summary>
+      <p>Not necessarily. Many people learn by ear, chord charts or tablature. Reading notation is useful and opens more repertoire, but you can start enjoying music before learning it.</p>
+    </details>
+    <details>
+      <summary>My fingers or hands feel sore. What should I do?</summary>
+      <p>Take regular breaks, keep sessions short while you build up and stop if anything hurts. If discomfort continues, speak with a doctor or a qualified teacher about technique and posture.</p>
+    </details>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section>
+  <div class="wrap narrow">
+    <div class="disclaimer" role="note">
+      <h3>Disclaimer</h3>
+      <p>The content on Glamora is provided for general informational and educational purposes only. It reflects common observations about learning music and should not be treated as professional musical instruction, medical or physical therapy advice.</p>
+      <p>Learning speed, technique and comfort vary from person to person. If you experience pain, strain or hearing discomfort while playing or listening, stop and consult a qualified professional, and keep volume at a comfortable level. Images are used for illustration only and do not represent or endorse any specific product, brand, performer or service.</p>
+      <p>Glamora does not sell products or services and makes no guarantees about results from applying the ideas shared here. Any decision you make is your own responsibility. Third-party advertising may appear on this site, and we are not responsible for the content of external advertisers.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top" aria-label="Glamora home">
+          <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#fff"/><path d="M16 29V12l12-3v17" fill="none" stroke="#2F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13.5" cy="29" r="3.2" fill="#D64550"/><circle cx="25.5" cy="26" r="3.2" fill="#D64550"/></svg>
+          <span>Glamora</span>
+        </a>
+        <p>An independent reading space about learning music, practice habits and instrument basics.</p>
+      </div>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div class="copy">&copy; 2026 Glamora. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
